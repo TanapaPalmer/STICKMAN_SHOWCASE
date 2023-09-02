@@ -1,4 +1,3 @@
-
 <div>
   <h3>STICKMAN SHOWCASE</h3> 
   <p>:pushpin:#tanapa_100day_projects</p>
