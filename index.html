@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="style.css">
+<html>
+	<body>
+        <div id='background'>
+          <div id='character' style='position:absolute; top:100px; left:450px; background-image: url("img/down1.png"); width:66px; height:93;'></div>
+        </div>
+
+		<img src="img/arrow_keyboard.png" class="arrow">
+
+		<div class="explaination">
+			<h2>Stickman Showcase</h2>
+			<p>Day 11! I'm drawing some fun stick figures to bring them to life with a project I'm creating. Imagine having these cute stick figure characters on your screen, and you can make them wiggle and waddle around just by tapping your keyboard arrows! Think of it as giving life to my little digital friends. When you press those arrow keys, it's like I'm their puppeteer, making them dance and stroll around with a clickety-clack of the keyboard!</p>
+		</div> 
+
+        <script type="text/javascript">
+            var leftValue = 450, topValue = 100, direction = 'down', step = 1;
+
+			function update(){
+				if (step == 1){
+					step = 2;
+				}
+				else{ 
+					step = 1;
+				}
+            	document.getElementById("character").style.left=leftValue+"px";
+				document.getElementById("character").style.top=topValue+"px";
+				document.getElementById("character").style.backgroundImage="url('img/"+direction+step+".png')";
+			}
+			document.onkeydown = function(e){
+                console.log(e);
+                if (e.keyCode == 37 && leftValue > 0){
+                    leftValue = leftValue - 10;
+					direction = 'left';
+                }
+                else if (e.keyCode == 39 && leftValue < 500){
+                    leftValue = leftValue + 10;
+					direction = 'right';
+                }
+                else if (e.keyCode == 40 && topValue < 500){
+                    topValue = topValue + 10;
+					direction = 'down';
+                }
+				else if (e.keyCode == 38 && topValue > 0){
+                    topValue = topValue - 10;
+					direction = 'top';
+                }
+				update();
+            }
+        </script>
+	</body>
+</html>
+
